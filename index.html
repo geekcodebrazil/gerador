@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Dados Fictícios Brasileiros para Testes</title>
+
+    <!-- Google Fonts: Orbitron (para o título) e Segoe UI (fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Favicons (Ajuste os caminhos 'href' conforme a localização real dos seus arquivos) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../favicon-128x128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../favicon-512x512.png">
+    <link rel="manifest" href="manifest.json"> <!-- Se você tiver um arquivo manifest.json -->
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="geek">Data</span><span class="code">Gen</span> BR</h1> <!-- Título estilizado como no exemplo -->
+
+        <p class="disclaimer">
+            ⚠️ <strong>Aviso Legal:</strong> Os dados gerados são 100% fictícios e devem ser usados <strong>apenas para fins de desenvolvimento, teste e validação de sistemas</strong>, respeitando as leis de proteção de dados e privacidade (como a LGPD). Nunca utilize em ambiente de produção ou para fins ilegais.
+        </p>
+
+        <!-- Checkbox de Consentimento -->
+        <div class="consent-check-container">
+            <input type="checkbox" id="consent-checkbox" name="consent-checkbox">
+            <label for="consent-checkbox">Estou ciente de usar estes dados <strong>apenas para fins de validação e teste</strong> de sistemas.</label>
+        </div>
+
+        <!-- Controles de Geração e Ação -->
+        <div class="controls">
+             <div class="control-group generation-options">
+                 <label for="gender-select">Gênero:</label>
+                 <select id="gender-select">
+                     <option value="any">Qualquer</option>
+                     <option value="male">Masculino</option>
+                     <option value="female">Feminino</option>
+                 </select>
+
+                 <label for="uf-select">UF:</label>
+                 <select id="uf-select">
+                     <option value="">Qualquer</option>
+                     <!-- Opções de UF serão preenchidas pelo script.js -->
+                 </select>
+
+                 <label class="pj-toggle">
+                     <input type="checkbox" id="include-pj-checkbox"> Incluir PJ
+                 </label>
+             </div>
+            <div class="control-group action-buttons">
+                <button id="generate-btn" class="btn btn-primary" disabled><i class="fas fa-sync-alt"></i> Gerar Dados</button>
+                <button id="copy-all-btn" class="btn btn-secondary" style="display: none;"><i class="fas fa-copy"></i> Copiar Tudo</button>
+                <button id="export-json-btn" class="btn btn-accent" style="display: none;"><i class="fas fa-file-code"></i> Exportar JSON</button>
+            </div>
+        </div>
+
+        <!-- Container para a Saída dos Dados Gerados -->
+        <div id="output-container">
+            <p class="placeholder">Marque a caixa de consentimento acima para habilitar a geração.</p>
+        </div>
+
+    </div>
+
+    <!-- Template para Itens de Dados (usado pelo JS para criar cada linha) -->
+    <template id="data-item-template">
+        <div class="data-item">
+            <span class="data-label"></span>: <!-- Ex: Nome Completo -->
+            <span class="data-value" id=""></span> <!-- Ex: João da Silva (com ID dinâmico) -->
+            <button class="copy-btn" title="Copiar"><i class="fas fa-copy"></i></button> <!-- Botão para copiar valor individual -->
+        </div>
+    </template>
+
+    <!-- Inclusão do Script JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Rodapé Padrão -->
+    <footer>
+        <div class="footer-links">
+            <a href="/../politica.html" target="_blank">Política de Privacidade</a>
+            <span>|</span>
+            <a href="/../servicos.html" target="_blank">Nossos Serviços</a>
+            <span>|</span>
+            <a href="/../sobre.html" target="_blank">Sobre Nós</a>
+            <span>|</span>
+            <a href="/../termos.html" target="_blank">Termos de Uso</a>
+            <span>|</span>
+            <a href="/../tutorial.html" target="_blank">Tutorial</a>
+            <span>|</span>
+            <a href="/../index.html" target="_blank">Início</a>
+        </div>
+        <p class="copyright">&copy; 2023-2024 SeuNomeOuEmpresa. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
